@@ -1,15 +1,17 @@
 package com.example.dependencyinjectionstart.example1
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.example.dependencyinjectionstart.R
+import javax.inject.Inject
 
-class Activity  {
+class Activity {
 
-    lateinit var computer:Computer
-    lateinit var mouse: Mouse
+    val mouse = DaggerNewComponent.create().getMouse()
+    val keyboard: Keyboard = DaggerNewComponent.create().getKeyboard()
+    @Inject
+    lateinit var monitor: Monitor
+    @Inject
+    lateinit var computer: Computer
 
     init {
-        Component().inject(this)
+        DaggerNewComponent.create().inject(this)
     }
 }

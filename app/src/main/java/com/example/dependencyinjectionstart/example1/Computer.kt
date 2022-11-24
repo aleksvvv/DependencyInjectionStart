@@ -1,7 +1,9 @@
 package com.example.dependencyinjectionstart.example1
 
-class Computer(
-    val storage: Monitor,
+import javax.inject.Inject
+
+class Computer (
+    val storage: Storage,
     val mouse: Mouse,
     val keyboard: Keyboard,
     val computerTower: ComputerTower
