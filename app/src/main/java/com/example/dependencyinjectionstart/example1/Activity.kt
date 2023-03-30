@@ -4,11 +4,12 @@ import javax.inject.Inject
 
 class Activity {
 
-    val monitor = Monitor()
-    val mouse = Mouse()
-    val keyboard = Keyboard()
-    val computerTower = ComputerTower(Storage(), Memory(), Processor())
+//    val comp = Component().getComp()
+    lateinit var comp:Computer
+    init {
+        Component().injectComp(this)
+    }
 
-    val computer = Computer(monitor, mouse, keyboard, computerTower)
 
-}
+
+    }
